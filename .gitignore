@@ -153,6 +153,14 @@ config.py
 # Laufzeit-Ausgaben des Bots (enthalten persönliche Buchungsdaten)
 bestaetigung.html
 fehler.html
+zwischenseite.html
+
+# Schlüssel, Tresor und Sitzungen (mysport.credentials) – niemals committen
+data/
+*.enc
+mysport_key
+mysport_password
+mysport_email
 
 # Spyder project settings
 .spyderproject
