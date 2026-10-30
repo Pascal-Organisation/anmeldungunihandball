@@ -40,7 +40,7 @@ Falls nicht:
 Falls Git installiert ist, öffne ein Terminal / die Eingabeaufforderung und führe aus:
 
 ```
-git clone https://github.com/pascal05/anmeldungunihandball
+git clone https://github.com/Pascal-Organisation/anmeldungunihandball
 cd anmeldungunihandball
 ```
 
