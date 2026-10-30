@@ -1,0 +1,29 @@
+## Org-wide security gates from Pascal-Organisation/security-pipeline.
+## Public repo: the shared workflows force GitHub-hosted runners.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "41 4 * * 1"   # weekly: full-history secret scan + fresh CVE data
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: Security
+    uses: Pascal-Organisation/security-pipeline/.github/workflows/ci.yml@d4daef03cb132a36ff9db04221f0b4261c136a5c # v1.0.0
+    # actions/security-events: SAST on public repos
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    with:
+      sast-languages: python,actions

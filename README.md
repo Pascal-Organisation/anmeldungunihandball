@@ -40,7 +40,7 @@ Falls nicht:
 Falls Git installiert ist, öffne ein Terminal / die Eingabeaufforderung und führe aus:
 
 ```
-git clone https://github.com/pascal05/anmeldungunihandball
+git clone https://github.com/Pascal-Organisation/anmeldungunihandball
 cd anmeldungunihandball
 ```
 
@@ -234,3 +234,10 @@ Bei erfolgreicher Buchung wird die Bestätigungsseite als `bestaetigung.html` ge
 ## Hinweis
 
 Die Buchung wird **sofort und verbindlich** abgesendet, sobald du das Skript startest. Stelle sicher, dass alle Angaben korrekt sind, bevor du es ausführst.
+
+## Für Entwickler: automatische Prüfungen
+
+Jeder Push und jeder Pull Request durchläuft die Sicherheitsprüfungen der Organisation aus
+[security-pipeline](https://github.com/Pascal-Organisation/security-pipeline) (actionlint, zizmor, TruffleHog, CodeQL, Trivy) auf
+GitHub-Runnern, dazu einmal pro Woche ein Secret-Scan über die ganze Historie.
+Abhängigkeiten hält Renovate aktuell (`renovate.json`).
