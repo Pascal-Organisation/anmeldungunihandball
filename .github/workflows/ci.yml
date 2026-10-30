@@ -1,0 +1,30 @@
+## Org-wide security gates from Pascal-Organisation/security-pipeline:
+## actionlint, zizmor, TruffleHog, CodeQL, Trivy (deps, IaC, licences).
+## Public repo: the shared workflows force GitHub-hosted runners.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "41 4 * * 1"   # weekly: full-history secret scan + fresh CVE data
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security:
+    name: Security
+    uses: Pascal-Organisation/security-pipeline/.github/workflows/ci.yml@fdc5462ae3665d05fb6c21ce09dc42f9801a285b # v0.2.0
+    # actions/security-events: CodeQL
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    with:
+      codeql-languages: python,actions
