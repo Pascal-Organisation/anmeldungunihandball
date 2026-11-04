@@ -19,11 +19,12 @@ concurrency:
 jobs:
   security:
     name: Security
-    uses: Pascal-Organisation/security-pipeline/.github/workflows/ci.yml@6eb47a0b56ad61b3ba3e773e5a90d8c2f79eef0f # v2.3.0
+    uses: Pascal-Organisation/security-pipeline/.github/workflows/ci.yml@46248dde5a8ce662aa6e13874ad1e94e52cd2941 # v3-workflows (to be replaced by v3.0.0 SHA)
     # actions/security-events: SAST on public repos
     permissions:
       contents: read
       actions: read
       security-events: write
+      packages: read # pull the private ci-toolbox (GitHub-hosted path)
     with:
       sast-languages: python,actions
