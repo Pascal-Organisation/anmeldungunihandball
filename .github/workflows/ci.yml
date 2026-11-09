@@ -19,7 +19,7 @@ concurrency:
 jobs:
   security:
     name: Security
-    uses: Pascal-Organisation/security-pipeline/.github/workflows/ci.yml@77922682997c548bc23600ff13a10da86fc8471f # v3.1.0
+    uses: Pascal-Organisation/security-pipeline/.github/workflows/ci.yml@dc0bbef5b6735f84a5d147c37d2e62c30be095b0 # v3.2.0
     # actions/security-events: SAST on public repos
     permissions:
       contents: read
