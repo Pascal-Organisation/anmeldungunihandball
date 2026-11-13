@@ -13,8 +13,8 @@ on:
 permissions: {}
 
 concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.ref }}-${{ github.event_name == 'schedule' && 'schedule' || 'change' }}
+  cancel-in-progress: ${{ github.event_name != 'schedule' }}
 
 jobs:
   security:
